@@ -74,6 +74,36 @@ class MyElevatedButton extends StatelessWidget {
   }
 }
 
+class MyElevatedButton1 extends StatelessWidget {
+  final String text;
+  final VoidCallback function;
+  const MyElevatedButton1({
+    super.key,
+    required this.text,
+    required this.function,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    var primarycolor = Colors.black;
+    return ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(primarycolor),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))),
+        ),
+        onPressed: () {
+          function();
+        },
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.white,fontSize: 12),
+          ),
+        ));
+  }
+}
 // class MyElevatedIconButton extends StatelessWidget {
 //   final String text;
 //   final VoidCallback function;
